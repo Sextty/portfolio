@@ -29,5 +29,15 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
+# Create the SQLite database file and set permissions so the web server can write to it
+RUN touch /var/www/html/database/database.sqlite \
+    && chown www-data:www-data /var/www/html/database/database.sqlite \
+    && chmod 664 /var/www/html/database/database.sqlite \
+    && chown www-data:www-data /var/www/html/database \
+    && chmod 775 /var/www/html/database
+
+# Tell serversideup/php to automatically run Laravel migrations on startup
+ENV AUTORUN_LARAVEL_MIGRATION=true
+
 # Switch back to the standard web user (www-data)
 USER www-data
