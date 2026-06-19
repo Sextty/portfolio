@@ -16,10 +16,10 @@ USER root
 RUN apt-get update && apt-get install -y unzip && rm -rf /var/lib/apt/lists/*
 
 # Copy project files to the root directory
-COPY --chmod=755 . /var/www/html
+COPY --chown=www-data:www-data . /var/www/html
 
 # Copy compiled frontend assets from Node stage
-COPY --from=node-builder --chmod=755 /app/public/build /var/www/html/public/build
+COPY --from=node-builder --chown=www-data:www-data /app/public/build /var/www/html/public/build
 
 # Install PHP dependencies using Composer
 ENV COMPOSER_ALLOW_SUPERUSER 1
