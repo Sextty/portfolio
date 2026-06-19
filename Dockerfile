@@ -37,6 +37,7 @@ RUN touch /var/www/html/database/database.sqlite \
     && chmod 775 /var/www/html/database
 
 # Tell serversideup/php to automatically run Laravel migrations on startup
+ENV AUTORUN_ENABLED=true
 ENV AUTORUN_LARAVEL_MIGRATION=true
 
 # Switch back to the standard web user (www-data)
