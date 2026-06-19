@@ -17,8 +17,12 @@ COPY . .
 # Copy built assets from node-builder
 COPY --from=node-builder /app/public/build ./public/build
 
+# Install PHP dependencies using composer
+ENV COMPOSER_ALLOW_SUPERUSER 1
+RUN composer install --no-dev --optimize-autoloader --no-interaction
+
 # Image configuration for richarvey/nginx-php-fpm
-ENV SKIP_COMPOSER 0
+ENV SKIP_COMPOSER 1
 ENV WEBROOT /var/www/html/public
 ENV PHP_ERRORS_STDERR 1
 ENV RUN_SCRIPTS 1
