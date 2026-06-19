@@ -25,16 +25,13 @@ COPY --from=node-builder --chown=www-data:www-data /app/public/build /var/www/ht
 ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-# Set proper ownership and permissions for Laravel writable directories
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
-    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# Create the SQLite database file
+RUN touch /var/www/html/database/database.sqlite
 
-# Create the SQLite database file and set permissions so the web server can write to it
-RUN touch /var/www/html/database/database.sqlite \
-    && chown www-data:www-data /var/www/html/database/database.sqlite \
-    && chmod 664 /var/www/html/database/database.sqlite \
-    && chown www-data:www-data /var/www/html/database \
-    && chmod 775 /var/www/html/database
+# Set proper ownership and permissions for ALL files, so the web server can write where needed
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database \
+    && chmod 664 /var/www/html/database/database.sqlite
 
 # Tell serversideup/php to automatically run Laravel migrations on startup
 ENV AUTORUN_ENABLED=true
