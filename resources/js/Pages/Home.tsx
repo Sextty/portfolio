@@ -11,7 +11,9 @@ const stats = [
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout
+      description="Wassim Jebali is a full-stack developer building ideas into reality — clean frontends, robust backends, and fully working web products."
+    >
       <section className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-center px-6">
         {/* Ambient glows */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -52,8 +54,9 @@ export default function Home() {
 
             <p className="text-[1.1rem] text-muted-foreground max-w-[500px] leading-relaxed mb-10">
               Wassim Jebali — full-stack developer passionate about building
-              clean, impactful web applications. From sleek frontends to
-              robust backends, I turn ideas into fully working products.
+              ideas into reality. From sleek frontends to robust backends, I
+              turn concepts into clean, impactful web applications and fully
+              working products.
             </p>
 
             <div className="flex flex-wrap gap-3">

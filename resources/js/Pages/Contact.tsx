@@ -15,7 +15,10 @@ export default function Contact() {
   };
 
   return (
-    <Layout>
+    <Layout
+      title="Contact"
+      description="Get in touch with Wassim Jebali for freelance work, collaborations, and full-time opportunities. Response within 24 hours."
+    >
       <section className="py-32 px-6 overflow-hidden relative">
         <div className="pointer-events-none absolute left-0 bottom-0 w-80 h-80 bg-blue-700/6 rounded-full blur-[90px]" />
 
@@ -30,11 +33,11 @@ export default function Contact() {
               <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#60a5fa] mb-3">
                 Say hello
               </p>
-              <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-extrabold text-foreground mb-5">
+              <h1 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-extrabold text-foreground mb-5">
                 Let's build
                 <br />
                 something.
-              </h2>
+              </h1>
               <p className="text-[0.95rem] text-muted-foreground leading-relaxed max-w-xs">
                 Open to contract work, interesting collaborations, and full-time
                 opportunities. Drop me a message and let's talk.

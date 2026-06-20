@@ -30,16 +30,19 @@ function getTagColor(tag: string) {
 
 export default function Projects({ projects }: { projects: Project[] }) {
   return (
-    <Layout>
+    <Layout
+      title="Projects"
+      description="Explore web development projects by Wassim Jebali — full-stack applications built with React, Laravel, and modern technologies."
+    >
       <section className="py-32 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#60a5fa] mb-3">
               Selected work
             </p>
-            <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-extrabold text-foreground">
+            <h1 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-extrabold text-foreground">
               Projects
-            </h2>
+            </h1>
           </div>
 
           {projects.length === 0 ? (

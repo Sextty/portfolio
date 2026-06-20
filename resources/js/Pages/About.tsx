@@ -32,7 +32,10 @@ const skills = [
 
 export default function About() {
   return (
-    <Layout>
+    <Layout
+      title="About"
+      description="Learn about Wassim Jebali, a full-stack web developer skilled in React, Laravel, PHP, Python, and modern web technologies."
+    >
       <section className="py-32 px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 items-start relative">
           <div className="pointer-events-none absolute right-0 top-0 w-96 h-96 bg-violet-800/6 rounded-full blur-[100px]" />
@@ -48,9 +51,9 @@ export default function About() {
             <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-[#a78bfa] mb-3">
               Who I am
             </p>
-            <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-extrabold text-foreground mb-8">
+            <h1 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-extrabold text-foreground mb-8">
               About
-            </h2>
+            </h1>
 
             <div className="space-y-4 text-[0.95rem] text-muted-foreground leading-[1.75]">
               <p>
